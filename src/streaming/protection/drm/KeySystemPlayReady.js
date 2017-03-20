@@ -90,7 +90,10 @@ function KeySystemPlayReady() {
             if (Challenge) {
                 licenseRequest = BASE64.decode(Challenge);
             }
+        } else {
+            return message;
         }
+
         return licenseRequest;
     }
 
