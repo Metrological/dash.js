@@ -22,7 +22,7 @@ angular.module('DashContributorsService', ['ngResource']).factory('contributors'
 app.controller('DashController', function($scope, sources, contributors) {
 
 
-    $scope.selectedItem = {url:"http://dash.edgesuite.net/akamai/bbb_30fps/bbb_30fps.mpd"};
+    $scope.selectedItem = {url:"http://wams.edgesuite.net/media/SintelTrailer_Smooth_from_WAME_720p_Main_Profile_CENC/CENC/sintel_trailer-720p.ism/manifest(format=mpd-time-csf)"};
 
     sources.query(function (data) {
         $scope.availableStreams = data.items;
@@ -513,6 +513,8 @@ app.controller('DashController', function($scope, sources, contributors) {
         }
         $scope.controlbar.enable();
     };
+
+    setTimeout($scope.doLoad, 3000);
 
     $scope.changeTrackSwitchMode = function(mode, type) {
         $scope.player.setTrackSwitchModeFor(type, mode);
